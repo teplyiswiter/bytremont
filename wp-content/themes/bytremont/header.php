@@ -36,33 +36,21 @@
 <header id="header">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-sm-8 headerimg">
+            <div class=" col-lg-10 col-md-7 col-sm-8 headerimg">
                 <h2><?php the_custom_logo();?>  
-                    <a href="<?php echo get_option('home'); ?>" class="site-title"><?php bloginfo('name'); ?></a>
+                    <!-- <a href="<?php echo get_option('home'); ?>" class="site-title"><?php bloginfo('name'); ?></a> -->
+                  <a href="<?php echo get_option('home'); ?>" class="site-title">
+                  <img src="<?php echo get_template_directory_uri()."/img/payalnik.svg"?>" width="50" alt=""><?php bloginfo('name'); ?>
+                  </a>
                 </h2>
                 <div class="description site-slogan" style="display: none;">
                     <?php bloginfo('description'); ?>
                 </div>
             </div>
-            <div class="contacts col-md-2 col-sm-4">
+            <div class="contacts col-lg-2 col-md-3 col-sm-4">
                 <div class="phones">
                     <?php _e('Phones:', 'bytremont')?><br>  
-                    <?php 
-                    $vodaphone = get_theme_mod( 'contact-phone-vodafone' ); 
-                    $kyivstar = get_theme_mod( 'contact-phone-kyivstar' ); 
-                    $lifecell = get_theme_mod( 'contact-phone-lifecell' ); 
-                    if( !empty( $vodaphone )):?>
-                    <a class="item vodafone" href="tel:<?php echo $vodaphone?>"><?php echo $vodaphone?></a><br>
-                    <?php endif;?>
-                    <?php if( !empty( $kyivstar )):?>
-                    <a class="item kyivstar" href="tel:<?php echo $kyivstar?>"><?php echo $kyivstar?></a><br>
-                    <?php endif;?>
-                    <?php if( !empty( $lifecell )):?>
-                    <a class="item lifecell" href="tel:<?php echo $lifecell?>"><?php echo $lifecell?></a><br>
-                    <?php endif;?>
-                    <?php if( !empty( get_theme_mod( 'contact-name' ) ) ):
-                    echo get_theme_mod( 'contact-name' );
-                    endif;?>
+                    <?php bytremont_get_contacts();?>
                 </div>
             </div>
         </div>
@@ -89,19 +77,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!--a class="navbar-brand site-title" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a-->
+            
             <button type="button" class="btn btn-info mobile-contacts " data-toggle="collapse" data-target=".phones"><?php _e('Contacts', 'bytremont')?></button>
+            <a class="navbar-brand site-title" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
             <div class="description site-slogan" style="display: none;">
                 <?php bloginfo('description'); ?>
             </div>
         </div>
         <!-- navbar search -->
-        <form id="navbar-searchform" class="navbar-form navbar-right" role="search" action="<?php echo esc_url( site_url() ); ?>" method="get">
+        <!-- <form id="navbar-searchform" class="navbar-form navbar-right" role="search" action="<?php echo esc_url( site_url() ); ?>" method="get">
             <div class="form-group">
                 <input id="s" name="s" type="text" class="form-control" placeholder="<?php esc_attr_e( '', 'alienship' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>">
             </div>
             <button id="navbar-searchsubmit" type="submit" name="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-        </form>
+        </form> -->
         <!-- navbar menu -->
         <?php
             wp_nav_menu( array(
@@ -117,23 +106,8 @@
             );
         ?>
         <div class="phones mobile collapse">
-            <a class="site-title" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a><br>
-            <?php 
-            $vodaphone = get_theme_mod( 'contact-phone-vodafone' ); 
-            $kyivstar = get_theme_mod( 'contact-phone-kyivstar' ); 
-            $lifecell = get_theme_mod( 'contact-phone-lifecell' ); 
-            if( !empty( $vodaphone )):?>
-            <a class="item vodafone" href="tel:<?php echo $vodaphone?>"><?php echo $vodaphone?></a><br>
-            <?php endif;?>
-            <?php if( !empty( $kyivstar )):?>
-            <a class="item kyivstar" href="tel:<?php echo $kyivstar?>"><?php echo $kyivstar?></a><br>
-            <?php endif;?>
-            <?php if( !empty( $lifecell )):?>
-            <a class="item lifecell" href="tel:<?php echo $lifecell?>"><?php echo $lifecell?></a><br>
-            <?php endif;?>
-            <?php if( !empty( get_theme_mod( 'contact-name' ) ) ):
-            echo get_theme_mod( 'contact-name' );
-            endif;?>
+            <!-- <a class="site-title" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a><br> -->
+            <?php bytremont_get_contacts()?>
         </div>
     </div>
 </nav>
@@ -143,3 +117,5 @@
 <?php endif ?>
 
 <div id="container">
+  
+            

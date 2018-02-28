@@ -37,11 +37,11 @@ get_header(); ?>
                     </article>
                 </div>
             <?php endwhile; ?>
-            <?php if (comments_open($post_id) ): ?>
+            <?php /*if (comments_open($post_id) ): ?>
             <div class="post-comments">
                 <?php comments_template('', true); ?>
             </div>
-        <?php endif; ?>
+        <?php endif;*/ ?>
         </div>
         <?php get_sidebar(); ?>
     </div>

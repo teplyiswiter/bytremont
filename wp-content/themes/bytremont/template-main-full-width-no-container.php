@@ -10,6 +10,14 @@
 get_header(); ?>
     <div class="main-content">
         <div class="container">
+          <div class="row electronics">
+            <div class="col-sm-4 hidden-sm hidden-xs"><img src="<?php echo get_template_directory_uri()."/img/refr.png";?>" class="refr" width="130" alt="Холодильник"></div>
+            <div class="col-sm-4 hidden-sm hidden-xs"><img src="<?php echo get_template_directory_uri()."/img/tv.png";?>" class="tv" width="230" alt="Телевизор"></div>
+            <div class="col-sm-4 hidden-sm hidden-xs"><img src="<?php echo get_template_directory_uri()."/img/mult.png";?>" class="mult" width="130" alt="Мультиварка"></div>
+            <div class="col-sm-12 mobile hidden-md hidden-lg">
+              <img src="<?php echo get_template_directory_uri()."/img/electronics.png";?>" alt="Электроника">
+            </div>
+          </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading-title">
