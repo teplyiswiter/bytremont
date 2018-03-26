@@ -9,13 +9,14 @@
 
 get_header(); ?>
     <div class="container main-content default-page">
-        <div id="content" class="col-sm-9 col-md-9">
-            <h2>Category: <?php the_category(', '); ?></h2>
+        <div id="content" class="col-sm-12 col-md-12">
+            <h2><?php _e('Category','bytremont')?>: <?php the_category(', '); ?></h2>
+            <p><?php echo category_description()?></p>
             <?php while(have_posts()): the_post() ?>
-                <div class="col-sm-6 col-md-6 card">
+                <div class="col-sm-4 col-md-4 card">
                     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <div class="thumbnail">
-                            <div class="crop half-col">
+                            <div class="crop">
                                 <a href="<?php the_permalink(); ?>">
                                     <?php get_thumbnail_or_placeholder() ?>
                                 </a>
@@ -29,9 +30,7 @@ get_header(); ?>
                             <div class="post-bottom">
                                 <div class="post-meta">
                                     <div class="entry-date">
-                                        By<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-                                            <?php printf( __( ' %s', 'bytremont' ), get_the_author() ); ?>
-                                        </a> on <?php echo get_the_date(); ?>
+                                      <?php echo get_the_date(); ?>
                                     </div>
                                     <div class="post-tags">
                                         <?php
@@ -45,7 +44,7 @@ get_header(); ?>
                                     </div>
                                 </div>
                                 <div>
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-primary" role="button">read more</a>
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-sm btn-primary" role="button"><?php _e('read more', 'bytremont')?></a>
                                 </div>
                             </div>
                         </div>
@@ -53,6 +52,6 @@ get_header(); ?>
                 </div>
             <?php endwhile; ?>
         </div>
-        <?php get_sidebar(); ?>
+        <?php //get_sidebar('repairparts'); ?>
     </div>
 <?php get_footer(); ?>

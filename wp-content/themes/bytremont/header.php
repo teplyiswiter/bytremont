@@ -36,7 +36,7 @@
 <header id="header">
     <div class="container">
         <div class="row">
-            <div class=" col-lg-10 col-md-7 col-sm-8 headerimg">
+            <div class=" col-lg-10 col-md-9 col-sm-8 headerimg">
                 <h2><?php the_custom_logo();?>  
                     <!-- <a href="<?php echo get_option('home'); ?>" class="site-title"><?php bloginfo('name'); ?></a> -->
                   <a href="<?php echo get_option('home'); ?>" class="site-title">
@@ -78,7 +78,7 @@
                 <span class="icon-bar"></span>
             </button>
             
-            <button type="button" class="btn btn-info mobile-contacts " data-toggle="collapse" data-target=".phones"><?php _e('Contacts', 'bytremont')?></button>
+            <!-- <button type="button" class="btn btn-success mobile-contacts " data-toggle="collapse" data-target=".phones"><?php _e('Contacts', 'bytremont')?></button> -->
             <a class="navbar-brand site-title" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
             <div class="description site-slogan" style="display: none;">
                 <?php bloginfo('description'); ?>
@@ -117,5 +117,15 @@
 <?php endif ?>
 
 <div id="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 hidden-md hidden-lg hidden-sm ">
+        <div class="phones mobile">
+        <?php _e('Phones:', 'bytremont')?><br>  
+        <?php bytremont_get_contacts();?>
+        </div>
+      </div>
+    </div>
+  </div>
   
             

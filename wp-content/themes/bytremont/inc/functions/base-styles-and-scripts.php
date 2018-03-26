@@ -35,23 +35,23 @@
         }
 
         /* Custom bootstrap */
-        if ( file_exists($custom_dir.'/'.$custom_bootstrap_style) ) {
-            wp_enqueue_style( 'custom-bootstrap-stylesheet', $theme_dir_uri . '/' . $custom_dir_name . '/' . $custom_bootstrap_style, false  );
-        }
-        else {
-            wp_enqueue_style( 'bootstrap-stylesheet', $bs_style, false );
-        }
+        // if ( file_exists($custom_dir.'/'.$custom_bootstrap_style) ) {
+        //     wp_enqueue_style( 'custom-bootstrap-stylesheet', $theme_dir_uri . '/' . $custom_dir_name . '/' . $custom_bootstrap_style, false  );
+        // }
+        // else {
+        //     wp_enqueue_style( 'bootstrap-stylesheet', $bs_style, false );
+        // }
 
-        if ( file_exists($custom_dir.'/'.$custom_bootstrap_script) ) {
-            wp_enqueue_script( 'custom-bootstrap-script', $theme_dir_uri . '/' . $custom_dir_name . '/' . $custom_bootstrap_script, array('jquery') );
-        }
-        else {
-            wp_enqueue_script( 'bootstrap-script', $bs_script, array('jquery') );
-        }
+        // if ( file_exists($custom_dir.'/'.$custom_bootstrap_script) ) {
+        //     wp_enqueue_script( 'custom-bootstrap-script', $theme_dir_uri . '/' . $custom_dir_name . '/' . $custom_bootstrap_script, array('jquery') );
+        // }
+        // else {
+        //     wp_enqueue_script( 'bootstrap-script', $bs_script, array('jquery') );
+        // }
 
 
-        wp_enqueue_style( 'animate-stylesheet', $animate_style, false );
-        wp_enqueue_style( 'font-awesome-stylesheet', $fa_style, false );
+        // wp_enqueue_style( 'animate-stylesheet', $animate_style, false );
+        // wp_enqueue_style( 'font-awesome-stylesheet', $fa_style, false );
 
         if (is_page_template('template-full-width-no-nav.php')) {
             wp_enqueue_script( 'plugins-script', $plugins_script, array('jquery') );
@@ -78,7 +78,7 @@
     if (function_exists('add_action')) {
         add_action( 'wp_head', 'add_ie_html5_shim');
         add_action( 'wp_enqueue_scripts', 'third_party_scripts' );
-        add_action( 'wp_enqueue_scripts', 'base_scripts' );
+        // add_action( 'wp_enqueue_scripts', 'base_scripts' );
     }
 
 ?>

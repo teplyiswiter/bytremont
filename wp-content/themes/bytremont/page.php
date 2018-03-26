@@ -8,7 +8,7 @@
     */
 get_header(); ?>
     <div class="container main-content  default-page">
-        <div id="content" class="col-sm-9 col-md-9">
+        <div id="content" class="col-sm-12 col-md-12">
             <?php while(have_posts()): the_post() ?>
                 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <?php if ( has_post_thumbnail()) : ?>
@@ -22,6 +22,6 @@ get_header(); ?>
                 </div>
             <?php endwhile; ?>
         </div>
-        <?php get_sidebar(); ?>
+        <?php //get_sidebar(); ?>
     </div>
 <?php get_footer(); ?>

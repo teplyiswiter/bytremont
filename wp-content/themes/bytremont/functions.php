@@ -9,11 +9,13 @@
     /** custom folder */
     $theme_dir_uri = get_template_directory_uri();
     $custom                 = 'custom';
+    
     $custom_dir_name        = '@' . $custom;
     $custom_dir             = get_template_directory() . '/' . $custom_dir_name;
     /** file name only */
-    $custom_style_file      = $custom.'.css';
-    $custom_script_file     = $custom.'.js';
+    $custom_style_file      = $custom.(!WP_DEBUG?'.min':'').'.css';
+      // }'.css';
+    $custom_script_file     = $custom.'.min.js';
     $custom_functions_file  = $custom.'_functions.php';
     /** full path and file */
     $custom_style           = $custom_dir . '/'. $custom_style_file;
@@ -158,5 +160,20 @@
             'footer' => 'page',
         ));
     }
+    function wpb_filter_query( $query, $error = true ) {
+      if ( is_search() ) {
+      $query->is_search = false;
+      $query->query_vars[s] = false;
+      $query->query[s] = false;
+      if ( $error == true )
+      $query->is_404 = true;
+      }
+    }
+    add_action( 'parse_query', 'wpb_filter_query' );
+    add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
+    function remove_search_widget() {
+        unregister_widget('WP_Widget_Search');
+    }  
+    add_action( 'widgets_init', 'remove_search_widget' );
 
 ?>

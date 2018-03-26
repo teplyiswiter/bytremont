@@ -43,6 +43,10 @@ get_header(); ?>
             </div>
         <?php endif;*/ ?>
         </div>
-        <?php get_sidebar(); ?>
+        <?php if(in_category('zapchasti')):
+          get_sidebar('repairparts');
+        else:
+          get_sidebar();
+        endif; ?>
     </div>
 <?php get_footer(); ?>
